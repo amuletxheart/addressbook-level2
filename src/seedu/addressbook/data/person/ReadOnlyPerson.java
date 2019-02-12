@@ -1,5 +1,6 @@
 package seedu.addressbook.data.person;
 
+import java.time.Instant;
 import java.util.Set;
 
 import seedu.addressbook.data.tag.Tag;
@@ -14,6 +15,7 @@ public interface ReadOnlyPerson {
     Phone getPhone();
     Email getEmail();
     Address getAddress();
+    Instant getTimeAdded();
 
     /**
      * Returns a new TagSet that is a deep copy of the internal TagSet,
@@ -89,6 +91,9 @@ public interface ReadOnlyPerson {
         if (!getAddress().isPrivate()) {
             builder.append(" Address: ").append(getAddress());
         }
+
+        builder.append(" DateTime added: ").append(getTimeAdded());
+
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);

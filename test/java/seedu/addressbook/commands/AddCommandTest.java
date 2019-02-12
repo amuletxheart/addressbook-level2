@@ -112,6 +112,7 @@ public class AddCommandTest {
         assertTrue(p.getAddress().isPrivate());
         boolean isTagListEmpty = !p.getTags().iterator().hasNext();
         assertTrue(isTagListEmpty);
+        assertFalse(p.getTimeAdded().toString().isEmpty());
     }
 
     @Test

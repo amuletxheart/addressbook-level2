@@ -1,5 +1,6 @@
 package seedu.addressbook.data.person;
 
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -17,6 +18,8 @@ public class Person implements ReadOnlyPerson {
     private Email email;
     private Address address;
 
+    private Instant timeAdded;
+
     private final Set<Tag> tags = new HashSet<>();
 
     /**
@@ -28,6 +31,8 @@ public class Person implements ReadOnlyPerson {
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+
+        this.timeAdded = Instant.now();
     }
 
     /**
@@ -55,6 +60,11 @@ public class Person implements ReadOnlyPerson {
     @Override
     public Address getAddress() {
         return address;
+    }
+
+    @Override
+    public Instant getTimeAdded() {
+        return timeAdded;
     }
 
     @Override
